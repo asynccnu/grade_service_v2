@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/muxih4ck/Go-Web-Application-Template/handler"
-	"github.com/muxih4ck/Go-Web-Application-Template/pkg/errno"
-	"github.com/muxih4ck/Go-Web-Application-Template/pkg/token"
+	"github.com/asynccnu/grade_service_v2/handler"
+	"github.com/asynccnu/grade_service_v2/pkg/errno"
+	"github.com/asynccnu/grade_service_v2/pkg/token"
 
 	"github.com/gin-gonic/gin"
 )
@@ -11,8 +11,8 @@ import (
 func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Parse the json web token.
-		if _, err := token.ParseRequest(c); err != nil {
-			handler.SendResponse(c, errno.ErrTokenInvalid, nil)
+		if err := token.ParseRequest(c); err != nil {
+			handler.SendUnAuth(c, errno.ErrAuthorizationInvalid, nil)
 			c.Abort()
 			return
 		}

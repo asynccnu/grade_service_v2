@@ -1,23 +1,27 @@
-## 华师匣子 GoVersion 成绩服务模块
+## Grade Service
 
-![](https://travis-ci.org/muxih4ck/Go-Web-Application-Template.svg?branch=master)
+<!-- ![](https://travis-ci.org/muxih4ck/Go-Web-Application-Template.svg?branch=master) -->
 
-### 简介
+匣子成绩查询服务
 
-主要依赖：gin + gorm + viper + lexkong/log
-
-### Build and run
+### 开发
 
 ```
 mkdir $GOPATH/src/github.com/asynccnu && cd $GOPATH/src/github.com/asynccnu
-git clone https://github.com/asynccnu/gradeServiceV2.git
-cd gradeServiceV2
-make
-./main
+git clone https://github.com/asynccnu/grade_service_v2.git
+cd grade_service_v2
+make && ./main
 ```
 
-### Testing
+### 测试
 
 ```
 make test
+```
+
+### 环境变量
+
+```
+CCNUBOX_GRADE_DATA_SERVICE_URL // data 服务 URL
+CCNUBOX_GRADE_RUNMODE
 ```
