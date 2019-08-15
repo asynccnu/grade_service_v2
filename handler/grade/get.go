@@ -2,7 +2,6 @@ package grade
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -36,7 +35,6 @@ func Get(c *gin.Context) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
 	defer cancel()
 
-	fmt.Println(c.MustGet("Sid").(string), c.MustGet("Password").(string))
 	table, err := client.GetUndergraduateGrade(ctx, &pb.GradeRequest{
 		Sid:      c.MustGet("Sid").(string),
 		Password: c.MustGet("Password").(string),
