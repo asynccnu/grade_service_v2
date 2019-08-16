@@ -24,10 +24,10 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	})
 
 	// The health check handlers
-	api := g.Group("/api/v2")
+	api := g.Group("/api/grade/v2")
 	api.Use(middleware.AuthMiddleware())
 	{
-		api.GET("/grade", grade.Get)
+		api.GET("", grade.Get)
 	}
 
 	// The health check handlers
