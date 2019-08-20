@@ -67,6 +67,7 @@ func Get(c *gin.Context) {
 			Category: item.Kclbmc,
 			Type:     item.Kcgsmc,
 			Kcxzmc:   item.Kcxzmc,
+			Xnm:      item.Xnm,
 		})
 	}
 
