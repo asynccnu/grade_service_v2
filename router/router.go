@@ -28,6 +28,7 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	api.Use(middleware.AuthMiddleware())
 	{
 		api.GET("", grade.Get)
+		api.GET("/detail", grade.GetDetail)
 	}
 
 	// The health check handlers
