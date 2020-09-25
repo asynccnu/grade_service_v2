@@ -8,6 +8,7 @@ import (
 	"github.com/asynccnu/grade_service_v2/config"
 	"github.com/asynccnu/grade_service_v2/router"
 	"github.com/asynccnu/grade_service_v2/router/middleware"
+	pb "github.com/asynccnu/grade_service_v2/rpc"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
@@ -27,9 +28,9 @@ func main() {
 		panic(err)
 	}
 
-	// init db
-	// model.DB.Init()
-	// defer model.DB.Close()
+	// init grpc connection
+	pb.InitConnection()
+	defer pb.CloseConnection()
 
 	// Set gin mode.
 	gin.SetMode(viper.GetString("runmode"))
